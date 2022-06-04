@@ -5,9 +5,8 @@ const resolvers = {
     users: async () => {
       return User.find({});
     },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
+    products: async (parent, { _id }) => {
+      return Product.find({})
     },
   },
   Mutation: {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Home from './pages/Home';
-import User from './pages/User';
-import Order from './pages/Order';
-import Product from './pages/Product.js';
-import NotFound from './pages/NotFound';
+import Home from './components/pages/Home';
+// import User from './components/pages/User';
+import Order from './components/pages/Order';
+import Product from './components/pages/Product.js';
+import NotFound from './components/pages/NotFound';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -22,10 +22,10 @@ function App() {
               path="/" 
               element={<Home />}
             />
-            <Route 
+            {/* <Route 
               path="/user" 
               element={<User />}
-            />
+            /> */}
             <Route 
               path="/matchup/:id" 
               element={<Order />}

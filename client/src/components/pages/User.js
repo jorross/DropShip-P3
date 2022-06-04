@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_TECH } from '../utils/queries';
-import { CREATE_MATCHUP } from '../utils/mutations';
+import { QUERY_USERS, QUERY_PRODUCTS, QUERY_ORDERS } from '../../utils/queries';
+import { CREATE_ORDER } from '../../utils/mutations';
 
 // add users
 // do we display user list on same screen as adding users?
 
-const Matchup = () => {
-  const { loading, data } = useQuery(QUERY_TECH);
+const User = () => {
+  const { loading, data } = useQuery(QUERY_USERS);
 
-  const techList = data?.tech || [];
+  const userList = data?.user || [];
 
-  const [formData, setFormData] = useState({
-    tech1: 'JavaScript',
-    tech2: 'JavaScript',
-  });
   let navigate = useNavigate();
 
-  const [createMatchup, { error }] = useMutation(CREATE_MATCHUP);
+  // const [createUser, { error }] = useMutation(CREATE_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -29,19 +25,14 @@ const Matchup = () => {
     event.preventDefault();
 
     try {
-      const { data } = await createMatchup({
+      const { data } = await createUser({
         variables: { ...formData },
       });
 
-      navigate(`/matchup/${data.createMatchup._id}`);
+      navigate(`/users/${data.createUser._id}`);
     } catch (err) {
       console.error(err);
     }
-
-    setFormData({
-      tech1: 'JavaScript',
-      tech2: 'JavaScript',
-    });
   };
 
   return (
@@ -54,28 +45,28 @@ const Matchup = () => {
           <div>Loading...</div>
         ) : (
           <form onSubmit={handleFormSubmit}>
-            <label>Tech 1: </label>
-            <select name="tech1" onChange={handleInputChange}>
-              {techList.map((tech) => {
+            <label>User 1: </label>
+            <select name="user1" onChange={handleInputChange}>
+              {userList.map((user) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={user._id} value={user.username}>
+                    {user.username}
                   </option>
                 );
               })}
             </select>
-            <label>Tech 2: </label>
-            <select name="tech2" onChange={handleInputChange}>
-              {techList.map((tech) => {
+            <label>user 2: </label>
+            <select name="user2" onChange={handleInputChange}>
+              {userList.map((user) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={user._id} value={user.username}>
+                    {user.username}
                   </option>
                 );
               })}
             </select>
             <button className="btn btn-danger" type="submit">
-              Create Matchup!
+              Create User!
             </button>
           </form>
         )}
@@ -85,4 +76,4 @@ const Matchup = () => {
   );
 };
 
-export default Matchup;
+// export default User;

@@ -4,7 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
 import User from './pages/User';
 import Order from './pages/Order';
-import Product from './pages/Product';
+import Product from './pages/Product.js';
 import NotFound from './pages/NotFound';
 
 const client = new ApolloClient({

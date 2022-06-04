@@ -4,6 +4,9 @@ import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_TECH } from '../utils/queries';
 import { CREATE_MATCHUP } from '../utils/mutations';
 
+// add users
+// do we display user list on same screen as adding users?
+
 const Matchup = () => {
   const { loading, data } = useQuery(QUERY_TECH);
 

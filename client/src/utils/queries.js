@@ -21,6 +21,7 @@ export const QUERY_PRODUCTS = gql`
   }
 `;
 
+// returns to home screen
 export const QUERY_ORDERS = gql`
   query orders($_id: String) {
     orders(_id: $_id) {

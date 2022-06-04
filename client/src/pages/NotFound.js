@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+// return not found page
+
 function NotFound() {
   let location = useLocation();
   return (

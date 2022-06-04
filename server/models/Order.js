@@ -2,11 +2,6 @@ const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
 const orderSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   product_id: {
     type: Schema.Types.ObjectId,
     ref: "Product"

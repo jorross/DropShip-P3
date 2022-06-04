@@ -21,7 +21,7 @@ const Home = () => {
         <h1>Welcome to Tech Matchup!</h1>
       </div>
       <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
+        <h2>this is a test </h2>
         {loading ? (
           <div>Loading...</div>
         ) : (

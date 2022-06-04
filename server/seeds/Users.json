@@ -1,0 +1,62 @@
+[
+    {
+      "name": "Jeff Jarvis",
+      "email": "jeff@email.com",
+      "password": "secertpassword",
+      "admin": "true"
+    },
+    {
+      "name": "Amy Wilhoite",
+      "email": "amy@email.com",
+      "password": "secertpassword",
+      "admin": "true"
+    },
+    {
+      "name": "Tom Noonan",
+      "email": "tom@email.com",
+      "password": "secertpassword",
+      "admin": "true"
+    },
+    {
+      "name": "Jordan Ross",
+      "email": "jordan@email.com",
+      "password": "secertpassword",
+      "admin": "true"
+    },
+    {
+      "name": "Robb Stark",
+      "email": "robb@email.com",
+      "password": "secertpassword",
+      "admin": "false"
+    },
+    {
+      "name": "Ned Stark",
+      "email": "ned@email.com",
+      "password": "secertpassword",
+      "admin": "false"
+    },
+    {
+      "name": "Jon Snow",
+      "email": "jon@email.com",
+      "password": "secertpassword",
+      "admin": "false"
+    },
+    {
+      "name": "Bran Stark",
+      "email": "bran@email.com",
+      "password": "secertpassword",
+      "admin": "false"
+    },
+    {
+      "name": "Arya Stark",
+      "email": "arya@email.com",
+      "password": "secertpassword",
+      "admin": "false"
+    },
+    {
+      "name": "Sansa Stark",
+      "email": "sansa@email.com",
+      "password": "secertpassword",
+      "admin": "false"
+    }
+  ]

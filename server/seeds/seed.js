@@ -2,8 +2,8 @@ const db = require('../config/connection');
 const { Product } = require('../models');
 const { User } = require('../models');
 
-const productData = require('./products.json');
-const userData = require('./users.json');
+const productData = require('./productsData.json');
+const userData = require('./usersData.json');
 
 
 db.once('open', async () => {

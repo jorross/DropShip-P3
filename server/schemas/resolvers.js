@@ -5,20 +5,20 @@ const resolvers = {
     users: async () => {
       return User.find({});
     },
-    products: async (parent, { _id }) => {
-      return Product.find({})
+    products: async () => {
+      return Product.find({});
+    },
+    orders: async (parent, { orderId }) => {
+      return Order.findOne({ _id: orderId });
     },
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
-    },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate({ _id }, { $inc: { [`tech${techNum}_votes`]: 1 } }, { new: true });
-      return vote;
+    createOrder: async (parent, args, context) => {
+      const newOrder = await Order.create(args);
+      return newOrder;
     },
   },
 };
+// fix me
 
 module.exports = resolvers;

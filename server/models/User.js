@@ -1,11 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   username: {
     type: String,
     required: true,
@@ -21,6 +16,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 7,
   },
+  admin: {
+    type: Boolean,
+    required: true,
+  }
 });
 
 const User = model("User", userSchema);

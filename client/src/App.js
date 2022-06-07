@@ -7,6 +7,8 @@ import Home from "./components/pages/Home";
 import Order from "./components/pages/Order";
 import Product from "./components/pages/Product.js";
 import NotFound from "./components/pages/NotFound";
+import Login from "./components/pages/SignIn";
+import Signup from "./components/pages/Signup";
 
 // const client = new ApolloClient({
 //   uri: '/graphql',
@@ -44,30 +46,16 @@ function App() {
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
-            <Route 
-              path="/" 
-              element={<Home />} 
-            />
-            <Route 
-              path="/login" 
-              element={<Login />} 
-              />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             {/* <Route 
                 path="/user" 
                 element={<User />}
             /> */}
-            <Route 
-              path="/order/:id" 
-              element={<Order />} 
-            />
-            <Route 
-              path="/product" 
-              element={<Product />} 
-            />
-            <Route 
-              path="*" 
-              element={<NotFound />} 
-            />
+            <Route path="/order/:id" element={<Order />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </Router>

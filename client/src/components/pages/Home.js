@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import NavTabs from '../NavTabs';
 
 import { QUERY_ORDERS } from '../../utils/queries';
 import Auth from '../../utils/auth';
@@ -26,7 +25,7 @@ const Home = () => {
   // const orderList = data?.order || [];
 
   return (
-    <body className="bg-primary text-light mb-4 py-3 flex-row align-center">
+    <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
@@ -38,9 +37,9 @@ const Home = () => {
           {Auth.loggedIn() ? (
             <>
               <span>Hey there, {Auth.getProfile().data.username}!</span>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              {/* <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
-              </button>
+              </button> */}
             </>
           ) : (
             <>
@@ -54,7 +53,7 @@ const Home = () => {
           )}
         </div>
       </div>
-    </body>
+    </div>
 
   );
 };

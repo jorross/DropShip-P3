@@ -4,7 +4,7 @@ import { CREATE_ORDER } from '../../utils/mutations';
 import { QUERY_ORDERS } from '../../utils/queries';
 
 import * as React from 'react';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -118,7 +118,7 @@ function preventDefault(event) {
 export default function Orders() {
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      {/* <Title>Recent Orders</Title> */}
       <Table size="small">
         <TableHead>
           <TableRow>

@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_ORDERS } from '../../utils/queries';
-import Auth from '../../utils/auth';
-
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_ORDERS, QUERY_PRODUCTS } from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 // home page
-// upon connection, view login screen 
+// upon connection, view login screen
 // upon login, view orders page view orders received in a table format
 // potential daily manifest with # orders # dollar aggregates
 // do we need container page with nav/header/footer to display
@@ -17,11 +16,13 @@ import Auth from '../../utils/auth';
 //   };
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_ORDERS, {
-    fetchPolicy: "no-cache"
+  const { loading, data } = useQuery(QUERY_PRODUCTS, {
+    fetchPolicy: "no-cache",
   });
 
-  const orderList = data?.order || [];
+  const productList = data?.product || [];
+
+  console.log(productList);
 
   return (
     <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
@@ -36,9 +37,7 @@ const Home = () => {
           {Auth.loggedIn() ? (
             <>
               <span>Hey there, {Auth.getProfile().data.username}!</span>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
+              <button className="btn btn-lg btn-light m-2">Logout</button>
             </>
           ) : (
             <>
@@ -53,7 +52,6 @@ const Home = () => {
         </div>
       </div>
     </header>
-
   );
 };
 

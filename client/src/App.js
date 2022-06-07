@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import Order from "./components/pages/Order";
 import Product from "./components/pages/Product.js";
 import NotFound from "./components/pages/NotFound";
+import Login from "./components/pages/SignIn";
+import Signup from "./components/pages/Signup";
 
 // const client = new ApolloClient({
 //   uri: '/graphql',
@@ -70,7 +72,12 @@ function App() {
                 path="*" 
                 element={<NotFound />} 
               />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             </Routes>
+
+ 
+
         </div>
       </Router>
     </ApolloProvider>

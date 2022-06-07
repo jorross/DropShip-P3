@@ -44,14 +44,30 @@ function App() {
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route 
+              path="/" 
+              element={<Home />} 
+            />
+            <Route 
+              path="/login" 
+              element={<Login />} 
+              />
             {/* <Route 
-              path="/user" 
-              element={<User />}
+                path="/user" 
+                element={<User />}
             /> */}
-            <Route path="/matchup/:id" element={<Order />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="*" element={<NotFound />} />
+            <Route 
+              path="/order/:id" 
+              element={<Order />} 
+            />
+            <Route 
+              path="/product" 
+              element={<Product />} 
+            />
+            <Route 
+              path="*" 
+              element={<NotFound />} 
+            />
           </Routes>
         </div>
       </Router>

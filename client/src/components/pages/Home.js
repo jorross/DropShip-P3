@@ -23,10 +23,10 @@ const Home = () => {
     fetchPolicy: "no-cache"
   });
 
-  const orderList = data?.order || [];
+  // const orderList = data?.order || [];
 
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
+    <body className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
@@ -54,7 +54,7 @@ const Home = () => {
           )}
         </div>
       </div>
-    </header>
+    </body>
 
   );
 };

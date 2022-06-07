@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import NavTabs from '../NavTabs';
+
 import { QUERY_ORDERS } from '../../utils/queries';
 import Auth from '../../utils/auth';
 

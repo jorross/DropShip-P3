@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Home from "./components/pages/Home";
+import Header from "./components/Header";
 // import User from './components/pages/User';
 import Order from "./components/pages/Order";
 import Product from "./components/pages/Product.js";
@@ -45,18 +46,38 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
-          <Routes>
-            <Route path="/" element={<Home />} />
+          <Header />
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Home />} 
+              />
+              {/* <Route 
+                path="/login" 
+                element={<Login />} 
+                /> */}
+              {/* <Route 
+                  path="/user" 
+                  element={<User />}
+              /> */}
+              <Route 
+                path="/order/:id" 
+                element={<Order />} 
+              />
+              <Route 
+                path="/product" 
+                element={<Product />} 
+              />
+              <Route 
+                path="*" 
+                element={<NotFound />} 
+              />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            {/* <Route 
-                path="/user" 
-                element={<User />}
-            /> */}
-            <Route path="/order/:id" element={<Order />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+            </Routes>
+
+ 
+
         </div>
       </Router>
     </ApolloProvider>

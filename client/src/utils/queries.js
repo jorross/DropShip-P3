@@ -11,8 +11,8 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_PRODUCTS = gql`
-  query products {
-    Product {
+  query Products {
+    products {
       _id
       name
       stock

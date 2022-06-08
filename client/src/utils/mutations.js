@@ -10,6 +10,17 @@ export const CREATE_ORDER = gql`
   }
 `;
 
+export const CREATE_PRODUCT = gql`
+  mutation createProduct($name: String!, $stock: Int, $price: Int) {
+    createProduct(name: $name, stock: $stock, price: $price) {
+      _id
+      name
+      stock
+      price
+    }
+  }
+`;
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {

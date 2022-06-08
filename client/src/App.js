@@ -61,7 +61,7 @@ function App() {
                   element={<User />}
               /> */}
               <Route 
-                path="/order/:id" 
+                path="/order" 
                 element={<Order />} 
               />
               <Route 

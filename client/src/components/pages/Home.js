@@ -4,10 +4,6 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ORDERS } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
-
-import { QUERY_ORDERS } from "../../utils/queries";
-import Auth from "../../utils/auth";
-
 // home page
 // upon connection, view login screen
 // upon login, view orders page view orders received in a table format

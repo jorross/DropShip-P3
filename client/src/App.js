@@ -9,11 +9,6 @@ import Order from "./components/pages/Order";
 import Product from "./components/pages/Product.js";
 import NotFound from "./components/pages/NotFound";
 
-// const client = new ApolloClient({
-//   uri: '/graphql',
-//   cache: new InMemoryCache(),
-// });
-
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -43,7 +38,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Header />
             <Routes>
               <Route 
@@ -71,7 +65,6 @@ function App() {
                 element={<NotFound />} 
               />
             </Routes>
-        </div>
       </Router>
     </ApolloProvider>
   );

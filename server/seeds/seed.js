@@ -5,7 +5,7 @@ const { Order } = require('../models');
 
 const productData = require('./productsData.json');
 const userData = require('./usersData.json');
-const orderData = require('./orderData.json');
+const orderData = require('./ordersData.json');
 
 
 db.once('open', async () => {

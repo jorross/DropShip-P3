@@ -1,6 +1,4 @@
 import * as React from "react";
-
-import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ORDERS } from "../../utils/queries";
 
@@ -23,9 +21,9 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link2 color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{" "}
+      </Link2>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -111,9 +109,9 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link2 href="#" variant="body2">
                   Already have an account? Sign in
-                </Link>
+                </Link2>
               </Grid>
             </Grid>
           </Box>

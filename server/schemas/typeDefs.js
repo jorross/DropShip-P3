@@ -19,7 +19,9 @@ const typeDefs = gql`
     _id: ID!
     product_id: ID!
     user_id: ID!
-    total: Int
+    shipTo: String!
+    PaymentMethod: String!
+    amount: Int
   }
 
   type Query {

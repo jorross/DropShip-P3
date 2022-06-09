@@ -4,12 +4,12 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@ap
 import { setContext } from "@apollo/client/link/context";
 import Home from "./components/pages/Home";
 import Header from "./components/Header";
-// import User from './components/pages/User';
+import User from './components/pages/User';
 import Order from "./components/pages/Order";
 import Product from "./components/pages/Product.js";
 import NotFound from "./components/pages/NotFound";
 import Login from "./components/pages/SignIn";
-import Signup from "./components/pages/Signup";
+import Signup from "./components/pages/SignUp";
 
 // const client = new ApolloClient({
 //   uri: '/graphql',
@@ -56,10 +56,10 @@ function App() {
                 path="/login" 
                 element={<Login />} 
                 /> */}
-              {/* <Route 
+              <Route 
                   path="/user" 
                   element={<User />}
-              /> */}
+              />
               <Route 
                 path="/order" 
                 element={<Order />} 

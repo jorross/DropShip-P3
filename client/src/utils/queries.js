@@ -4,6 +4,7 @@ export const QUERY_USERS = gql`
   query users {
     User {
       _id
+      username
       email
       admin
     }

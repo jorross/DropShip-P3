@@ -1,8 +1,10 @@
-import * as React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { QUERY_ORDERS } from "../../utils/queries";
+import { LOGIN_USER } from "../../utils/mutations";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -18,30 +20,68 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import Auth from "../../utils/auth";
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link2 color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{" "}
+      </Link2>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>
   );
 }
 
-const theme = createTheme();
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
     });
   };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.log("HERE!");
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
+
+  const theme = createTheme();
+
+  // export default function SignIn() {
+  //   const handleSubmit = (event) => {
+  //     event.preventDefault();
+  //     const data = new FormData(event.currentTarget);
+  //     console.log({
+  //       email: data.get("email"),
+  //       password: data.get("password"),
+  //     });
+  //   };
 
   return (
     <ThemeProvider theme={theme}>
@@ -61,7 +101,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -71,6 +111,7 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -81,21 +122,22 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
             />
             <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            <Button type="submit" onClick={handleFormSubmit} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link2 href="#" variant="body2">
                   Forgot password?
-                </Link>
+                </Link2>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link2 href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </Link2>
               </Grid>
             </Grid>
           </Box>
@@ -104,4 +146,5 @@ export default function SignIn() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+export default Login;

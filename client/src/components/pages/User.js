@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_USERS, QUERY_PRODUCTS, QUERY_ORDERS } from '../../utils/queries';
-import { CREATE_ORDER } from '../../utils/mutations';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_USERS, QUERY_PRODUCTS, QUERY_ORDERS } from "../../utils/queries";
+import { CREATE_ORDER } from "../../utils/mutations";
 
 // add users
 // do we display user list on same screen as adding users?
@@ -76,4 +76,4 @@ const User = () => {
   );
 };
 
-// export default User;
+export default User;

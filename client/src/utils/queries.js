@@ -4,6 +4,8 @@ export const QUERY_USERS = gql`
   query Users {
     users {
       _id
+      firstname
+      lastname
       email
       admin
     }
@@ -21,14 +23,15 @@ export const QUERY_PRODUCTS = gql`
   }
 `;
 
-// returns to home screen
 export const QUERY_ORDERS = gql`
-  query orders($_id: String) {
-    orders(_id: $_id) {
+  query Orders {
+    orders {
       _id
-      product_id
-      user_id
-      total
+      name
+      date
+      shipTo
+      PaymentMethod
+      amount
     }
   }
 `;

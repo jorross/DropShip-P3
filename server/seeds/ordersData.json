@@ -1,35 +1,35 @@
 [
   {
-    "date": "16 Mar, 2021",
     "name": "Elvis Presley",
+    "date": "16 Mar, 2021",
     "shipTo": "Tupelo, MS",
     "paymentMethod": "VISA",
     "amount": 312.44
   },
   {
-    "date": "16 Mar, 2021",
     "name": "Paul McCartney",
+    "date": "16 Mar, 2021",
     "shipTo": "London, UK",
     "paymentMethod": "VISA",
     "amount": 866.99
   },
   {
-    "date": "16 Mar, 2021",
     "name": "Tom Scholz",
+    "date": "16 Mar, 2021",
     "shipTo": "Boston, MA",
     "paymentMethod": "MC",
     "amount": 100.81
   },
   {
-    "date": "16 Mar, 2021",
     "name": "Michael Jackson",
+    "date": "16 Mar, 2021",
     "shipTo": "Gary, IN",
     "paymentMethod": "AMEX",
     "amount": 654.39
   },
   {
-    "date": "16 Mar, 2021",
     "name": "Bruce Springsteen",
+    "date": "16 Mar, 2021",
     "shipTo": "Long Branch, NJ",
     "paymentMethod": "VISA",
     "amount": 212.79

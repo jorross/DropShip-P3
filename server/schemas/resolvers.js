@@ -8,7 +8,7 @@ const resolvers = {
       return User.find({});
     },
     user: async (parent, { email }) => {
-      return User.findOne({ email });
+      return User.findOne({ email }).populate("orders");
     },
     products: async () => {
       return Product.find({});
@@ -43,6 +43,13 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addOrder: async (parent, { name, user_email }) => {
+      const order = await Order.create({ name, user_email });
+
+      await User.findOneAndUpdate({ email: user_email }, { $addToSet: { orders: order._id } });
+
+      return order;
     },
     // loginUser: async (parent, { email, password }) => {
     //   const user = await User.findOne({ email });

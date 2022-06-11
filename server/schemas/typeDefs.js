@@ -8,6 +8,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     admin: Boolean!
+    orders: [Order]!
   }
 
   type Product {
@@ -24,6 +25,7 @@ const typeDefs = gql`
     shipTo: String
     PaymentMethod: String
     amount: Float
+    user_email: String
   }
 
   type Auth {
@@ -42,6 +44,7 @@ const typeDefs = gql`
     createOrder(product_id: ID!, user_id: ID!): Order
     addUser(firstname: String!, lastname: String!, email: String!, password: String!, admin: Boolean!): Auth
     login(email: String!, password: String!): Auth
+    addOrder(_id: ID!, name: String!, user_email: String): Order
   }
 `;
 

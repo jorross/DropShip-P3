@@ -8,6 +8,7 @@ export const QUERY_USERS = gql`
       lastname
       email
       admin
+      orders
     }
   }
 `;
@@ -21,6 +22,7 @@ export const QUERY_USER = gql`
       email
       password
       admin
+      orders
     }
   }
 `;

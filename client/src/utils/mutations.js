@@ -46,3 +46,17 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_ORDER = gql`
+  mutation addOrder($name: String!, $user_email: String!) {
+    addOrder(name: $name, user_email: $user_email) {
+      _id
+      name
+      date
+      shipTo
+      PaymentMethod
+      amount
+      user_email
+    }
+  }
+`;

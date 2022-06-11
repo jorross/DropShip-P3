@@ -18,6 +18,9 @@ const orderSchema = new Schema({
   amount: {
     type: Number,
   },
+  user_email: {
+    type: String,
+  },
 });
 
 const Order = model("Order", orderSchema);

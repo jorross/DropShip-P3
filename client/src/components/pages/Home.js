@@ -1,13 +1,14 @@
+import React, { Component } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from "../../utils/queries";
 
-import { Box, Paper, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import ProductCard from '../ProductCard';
 // import { experimentalStyled as styled } from '@mui/material/styles';
 // import { spacing } from '@mui/system';
 
 // mui homepage with product cards
-export default function Home() {
+const Home = () => {
   
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -25,3 +26,5 @@ export default function Home() {
     </Box>
   );
 }
+
+export default Home

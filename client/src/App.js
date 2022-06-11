@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+import { CssBaseline } from "@mui/material";
+
 import Home from "./components/pages/Home";
 import Header from "./components/Header";
 import User from './components/pages/User.js';
@@ -46,41 +48,47 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <React.Fragment>
+          <CssBaseline>
+           <Header />
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Home />} 
+              />
+              {/* <Route 
 
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route 
                 path="/login" 
                 element={<Login />} 
                 /> */}
-          <Route
-            path="/user"
-            element={<User />}
-          />
-          <Route
-            path="/order"
-            element={<Order />}
-          />
-          <Route
-            path="/product"
-            element={<Product />}
-          />
-          <Route
-            path="*"
-            element={<NotFound />}
-          />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-          <Route
-            path="/signup"
-            element={<Signup />}
-          />
-        </Routes>
-      </Router>
-
+            {/* <Route 
+                  path="/user" 
+                  element={<User />}
+              /> */}
+              <Route 
+                path="/order" 
+                element={<Order />} 
+              />
+              <Route 
+                path="/product" 
+                element={<Product />} 
+              />
+              <Route 
+                path="*" 
+                element={<NotFound />} 
+              />
+            <Route 
+            path="/login" 
+            element={<Login />} 
+            />
+            <Route 
+            path="/signup" 
+            element={<Signup />} 
+            />
+          </Routes>
+        </CssBaseline>
+       </React.Fragment>
+      </Router> 
     </ApolloProvider>
   );
 }

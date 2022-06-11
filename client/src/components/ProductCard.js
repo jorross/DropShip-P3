@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,15 +7,18 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function ProductCard({product}) {
-  // const image = require(`${product.image}`).default;
+  // const [imgPath, setImgPath] = useState('');
+  // setImgPath(product.image);
+  // useEffect(() => {
+  //   imgPath = `${product.image}`
+  // });
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      {console.log("product", product)}
+    <Card sx={{ minWidth: 375, boxShadow: 7 }}>
       <CardMedia
         component="img"
         alt={product.name}
-        height="180"
-        image=''
+        height="250"
+        // src={imgPath}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -25,7 +28,7 @@ export default function ProductCard({product}) {
           ${product.price}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions style={{ justifyContent: 'center' }}>
         <Button size="small">Buy Now</Button>
         <Button size="small">Learn More</Button>
       </CardActions>

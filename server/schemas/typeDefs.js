@@ -15,6 +15,7 @@ const typeDefs = gql`
     name: String!
     stock: Int
     price: Int
+    image: String
   }
 
   type Order {

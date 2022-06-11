@@ -14,6 +14,9 @@ const productSchema = new Schema({
   },
   stock: {
     type: Number,
+  },
+  image: {
+    type: String
   }
 });
 

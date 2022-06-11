@@ -2,7 +2,8 @@
   {
     "name": "Nike Air Force 1",
     "price": "130",
-    "stock": "5"
+    "stock": "5",
+    "image": "../assets/images/product-img/NikeAF1.png"
   },
   {
     "name": "Nike Air Max 90",

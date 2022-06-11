@@ -6,21 +6,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function ProductCard() {
+export default function ProductCard({product}) {
+  // const image = require(`${product.image}`).default;
   return (
     <Card sx={{ maxWidth: 345 }}>
+      {console.log("product", product)}
       <CardMedia
         component="img"
-        height="140"
-        image=" "
-        alt=" "
+        alt={product.name}
+        height="180"
+        image=''
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Product
+          {product.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          This product is pretty dope.
+          ${product.price}
         </Typography>
       </CardContent>
       <CardActions>

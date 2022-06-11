@@ -21,29 +21,12 @@ const User = () => {
   const userList = data?.user || [];
 
 
-  // const [createUser, { error }] = useMutation(CREATE_USER);
+  //const [createUser, { error }] = useMutation(CREATE_USER);
 
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormData({ ...formData, [name]: value });
-  // };
 
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   try {
-  //     const { data } = await createUser({
-  //       variables: { ...formData },
-  //     });
-
-  //     navigate(`/users/${data.createUser._id}`);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-  
   return (
     <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+      <h2 id="role-grabber">Welcome, InputUserNameHere!</h2>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -68,5 +51,5 @@ const User = () => {
       </Table>
     </Paper>
   );
-
-  export default User;
+}
+export default User;

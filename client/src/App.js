@@ -5,8 +5,8 @@ import { setContext } from "@apollo/client/link/context";
 
 import Home from "./components/pages/Home";
 import Header from "./components/Header";
-import User from './components/pages/User';
-import Order from "./components/pages/Order";
+import User from './components/pages/User.js';
+import Order from "./components/pages/Order.js";
 import Product from "./components/pages/Product.js";
 import NotFound from "./components/pages/NotFound";
 import Login from "./components/pages/SignIn";

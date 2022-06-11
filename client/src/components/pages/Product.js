@@ -32,7 +32,7 @@ const Product = () => {
     <React.Fragment>
       <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
         <Table size="small">
-          <TableHead>
+          <TableHead>Available Products:
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell>Stock</TableCell>

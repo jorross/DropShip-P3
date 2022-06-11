@@ -8,8 +8,8 @@ const resolvers = {
     products: async () => {
       return Product.find({});
     },
-    orders: async (parent, { orderId }) => {
-      return Order.findOne({ _id: orderId });
+    orders: async () => {
+      return Order.find({});
     },
   },
   Mutation: {

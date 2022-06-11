@@ -18,8 +18,8 @@ const typeDefs = gql`
 
   type Order {
     _id: ID!
-    product_id: ID!
-    user_id: ID!
+    name: String!
+    date: String!
     shipTo: String!
     PaymentMethod: String!
     amount: Int

@@ -7,6 +7,9 @@ const resolvers = {
     users: async () => {
       return User.find({});
     },
+    user: async (parent, { email }) => {
+      return User.findOne({ email });
+    },
     products: async () => {
       return Product.find({});
     },

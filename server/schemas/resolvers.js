@@ -19,8 +19,8 @@ const resolvers = {
       const newOrder = await Order.create(args);
       return newOrder;
     },
-    addUser: async (parent, { email, password }) => {
-      const user = await User.create({ email, password });
+    addUser: async (parent, { firstname, lastname, email, password, admin }) => {
+      const user = await User.create({ firstname, lastname, email, password, admin });
       const token = signToken(user);
       return { token, user };
     },

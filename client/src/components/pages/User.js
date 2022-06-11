@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_USERS, QUERY_PRODUCTS, QUERY_ORDERS } from "../../utils/queries";
-import { CREATE_USER } from "../../utils/mutations";
+import { ADD_USER } from "../../utils/mutations";
 
 // add users
 // do we display user list on same screen as adding users?
@@ -14,7 +14,7 @@ const User = () => {
 
   let navigate = useNavigate();
 
-  // const [createUser, { error }] = useMutation(CREATE_USER);
+  const [createUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+
 import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+import { Box, Paper, Grid } from '@mui/material';
 import ProductCard from '../ProductCard';
+import { spacing } from '@mui/system';
 
 import { QUERY_ORDERS } from '../../utils/queries';
 import Auth from '../../utils/auth';
@@ -23,7 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
 // use .map() to map products
 export default function Home() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, mt: 6 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {Array.from(Array(6)).map((_, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+import { CssBaseline } from "@mui/material";
+
 import Home from "./components/pages/Home";
 import Header from "./components/Header";
 // import User from './components/pages/User';
@@ -46,11 +48,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <React.Fragment>
+          <CssBaseline>
+           <Header />
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Home />} 
+              />
+              {/* <Route 
 
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route 
                 path="/login" 
                 element={<Login />} 
                 /> */}
@@ -79,8 +86,9 @@ function App() {
             element={<Signup />} 
             />
           </Routes>
-      </Router>
-      
+        </CssBaseline>
+       </React.Fragment>
+      </Router> 
     </ApolloProvider>
   );
 }

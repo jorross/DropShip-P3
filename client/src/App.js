@@ -48,16 +48,13 @@ function App() {
       <Router>
 
           <Header />
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              {/* <Route 
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route 
                 path="/login" 
                 element={<Login />} 
                 /> */}
-              {/* <Route 
+            {/* <Route 
                   path="/user" 
                   element={<User />}
               /> */}

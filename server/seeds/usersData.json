@@ -1,62 +1,72 @@
 [
     {
-      "username": "Jeff Jarvis",
+      "firstname": "Jeff",
+      "lastname": "Jarvis",
       "email": "jeff@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "true"
     },
     {
-      "username": "Amy Wilhoite",
+      "firstname": "Amy",
+      "lastname": "Wilhoite",
       "email": "amy@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "true"
     },
     {
-      "username": "Tom Noonan",
+      "firstname": "Tom",
+      "lastname": "Noonan",
       "email": "tom@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "true"
     },
     {
-      "username": "Jordan Ross",
+      "firstname": "Jordan",
+      "lastname": "Ross",
       "email": "jordan@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "true"
     },
     {
-      "username": "Robb Stark",
+      "firstname": "Robb",
+      "lastname": "Stark",
       "email": "robb@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "false"
     },
     {
-      "username": "Ned Stark",
+      "firstname": "Ned",
+      "lastname": "Stark",
       "email": "ned@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "false"
     },
     {
-      "username": "Jon Snow",
+      "firstname": "Jon",
+      "lastname": "Snow",
       "email": "jon@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "false"
     },
     {
-      "username": "Bran Stark",
+      "firstname": "Bran",
+      "lastname": "Stark",
       "email": "bran@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "false"
     },
     {
-      "username": "Arya Stark",
+      "firstname": "Arya",
+      "lastname": "Stark",
       "email": "arya@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "false"
     },
     {
-      "username": "Sansa Stark",
+      "firstname": "Sansa",
+      "lastname": "Stark",
       "email": "sansa@email.com",
-      "password": "secertpassword",
+      "password": "secretpassword",
       "admin": "false"
     }
   ]

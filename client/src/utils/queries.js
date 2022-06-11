@@ -24,11 +24,11 @@ export const QUERY_PRODUCTS = gql`
 `;
 
 export const QUERY_ORDERS = gql`
-  query Orders{
-    orders{
+  query Orders {
+    orders {
       _id
-      date
       name
+      date
       shipTo
       PaymentMethod
       amount

@@ -1,18 +1,17 @@
-import { useQuery, useMutation } from '@apollo/client';
-import { useParams, Link } from 'react-router-dom';
-import { CREATE_ORDER } from '../../utils/mutations';
-import { QUERY_ORDERS } from '../../utils/queries';
+import { useQuery, useMutation } from "@apollo/client";
+import { useParams, Link } from "react-router-dom";
+import { CREATE_ORDER } from "../../utils/mutations";
+import { QUERY_ORDERS } from "../../utils/queries";
 
-import * as React from 'react';
-import Link2 from '@mui/material/Link';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-
+import * as React from "react";
+import Link2 from "@mui/material/Link";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 
 const Order = () => {
   // let { id } = useParams();
@@ -25,12 +24,11 @@ const Order = () => {
 
   //const [createOrder, { error }] = useMutation(CREATE_ORDER);
 
-
   return (
     <React.Fragment>
-      <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+      <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
         <Table size="small">
-          <TableHead>Recent Orders:
+          <TableHead>
             <TableRow>
               <TableCell>Order ID</TableCell>
               <TableCell>Date</TableCell>
@@ -57,8 +55,7 @@ const Order = () => {
           See more orders
             </>*/}
       </Paper>
-      </React.Fragment>
-
+    </React.Fragment>
   );
-}
+};
 export default Order;

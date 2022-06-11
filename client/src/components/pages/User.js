@@ -4,13 +4,13 @@ import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_USERS, QUERY_PRODUCTS, QUERY_ORDERS } from "../../utils/queries";
 import { ADD_USER } from "../../utils/mutations";
 
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 // add users
 // do we display user list on same screen as adding users?
@@ -20,13 +20,11 @@ const User = () => {
 
   const userList = data?.user || [];
 
-
   const [createUser, { error }] = useMutation(ADD_USER);
 
-
   return (
-    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-      <h2 id="role-grabber">Welcome, {user.firstname}!</h2>
+    <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+      <h2 id="role-grabber">Welcome, {userList.firstname}!</h2>
       <Table size="small">
         <TableHead>
           <TableRow>

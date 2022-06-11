@@ -2,23 +2,22 @@ const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
 const orderSchema = new Schema({
-  product_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Product"
+  name: {
+    type: String,
+    required: true,
   },
-  user_id: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+  date: {
+    type: String,
   },
-  total: {
+  shipTo: {
+    type: String,
+  },
+  PaymentMethod: {
+    type: String,
+  },
+  amount: {
     type: Number,
-    default: 0,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp)
-  }
 });
 
 const Order = model("Order", orderSchema);

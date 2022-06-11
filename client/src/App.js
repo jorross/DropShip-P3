@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+
 import Home from "./components/pages/Home";
 import Header from "./components/Header";
 // import User from './components/pages/User';
@@ -45,7 +46,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
+
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -57,14 +58,29 @@ function App() {
                   path="/user" 
                   element={<User />}
               /> */}
-            <Route path="/order" element={<Order />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+              <Route 
+                path="/order" 
+                element={<Order />} 
+              />
+              <Route 
+                path="/product" 
+                element={<Product />} 
+              />
+              <Route 
+                path="*" 
+                element={<NotFound />} 
+              />
+            <Route 
+            path="/login" 
+            element={<Login />} 
+            />
+            <Route 
+            path="/signup" 
+            element={<Signup />} 
+            />
           </Routes>
-        </div>
       </Router>
+      
     </ApolloProvider>
   );
 }

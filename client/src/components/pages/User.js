@@ -1,9 +1,9 @@
-import { useQuery, useMutation } from "@apollo/client";
-import { useParams, Link } from "react-router-dom";
-import { CREATE_USER } from "../../utils/mutations";
-import { QUERY_USERS } from "../../utils/queries";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_USERS, QUERY_PRODUCTS, QUERY_ORDERS } from "../../utils/queries";
+import { ADD_USER } from "../../utils/mutations";
 
-import * as React from "react";
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Table from '@mui/material/Table';
@@ -21,12 +21,12 @@ const User = () => {
   const userList = data?.user || [];
 
 
-  //const [createUser, { error }] = useMutation(CREATE_USER);
+  const [createUser, { error }] = useMutation(ADD_USER);
 
 
   return (
     <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-      <h2 id="role-grabber">Welcome, InputUserNameHere!</h2>
+      <h2 id="role-grabber">Welcome, {user.firstname}!</h2>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -41,7 +41,7 @@ const User = () => {
           {userList.map((user) => (
             <TableRow key={user.id}>
               <TableCell>text1</TableCell>
-              <TableCell>{user.username}</TableCell>
+              <TableCell>{user.firstname}</TableCell>
               <TableCell>row.shipTo</TableCell>
               <TableCell>row.paymentMethod</TableCell>
               <TableCell align="right">`$$row.amount`</TableCell>
@@ -51,5 +51,6 @@ const User = () => {
       </Table>
     </Paper>
   );
-}
+};
+
 export default User;

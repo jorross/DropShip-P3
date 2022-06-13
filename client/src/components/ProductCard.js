@@ -7,18 +7,20 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function ProductCard({product}) {
+  console.log('product', product);
+  console.log('prod-image', product.image);
   // const [imgPath, setImgPath] = useState('');
   // setImgPath(product.image);
-  // useEffect(() => {
-  //   imgPath = `${product.image}`
-  // });
+  const imgPath = product.image;
+  // const prodImage = require(prodPath).default;
+  // console.log(prodPath);
   return (
     <Card sx={{ minWidth: 375, boxShadow: 7 }}>
       <CardMedia
         component="img"
         alt={product.name}
         height="250"
-        // src={imgPath}
+        src={imgPath}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

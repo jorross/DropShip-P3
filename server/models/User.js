@@ -25,6 +25,12 @@ const userSchema = new Schema({
     type: Boolean,
     required: true,
   },
+  orders: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
 });
 
 // userSchema.pre("save", async function (next) {

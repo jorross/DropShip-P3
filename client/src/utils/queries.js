@@ -8,6 +8,21 @@ export const QUERY_USERS = gql`
       lastname
       email
       admin
+      orders
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
+  query User($email: String!) {
+    user(email: $email) {
+      _id
+      firstname
+      lastname
+      email
+      password
+      admin
+      orders
     }
   }
 `;

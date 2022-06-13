@@ -2,9 +2,10 @@ const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
 const orderSchema = new Schema({
-  name: {
+  user_email: {
     type: String,
     required: true,
+    // ref: "User",
   },
   date: {
     type: String,

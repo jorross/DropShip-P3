@@ -7,6 +7,9 @@ const resolvers = {
     users: async () => {
       return User.find({});
     },
+    user: async (parent, { email }) => {
+      return User.findOne({ email }).populate("orders");
+    },
     products: async () => {
       return Product.find({});
     },
@@ -17,6 +20,9 @@ const resolvers = {
   Mutation: {
     createOrder: async (parent, args, context) => {
       const newOrder = await Order.create(args);
+
+      await User.findOneAndUpdate({ email: newOrder.user_email }, { $addToSet: { orders: newOrder._id } });
+
       return newOrder;
     },
     addUser: async (parent, { firstname, lastname, email, password, admin }) => {
@@ -41,6 +47,13 @@ const resolvers = {
 
       return { token, user };
     },
+    // addOrder: async (parent, { name, user_email }) => {
+    //   const order = await Order.create({ name, user_email });
+
+    //   await User.findOneAndUpdate({ email: user_email }, { $addToSet: { orders: order._id } });
+
+    //   return order;
+    // },
     // loginUser: async (parent, { email, password }) => {
     //   const user = await User.findOne({ email });
 

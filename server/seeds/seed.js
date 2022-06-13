@@ -22,7 +22,19 @@ db.once("open", async () => {
 
   await Order.deleteMany({});
 
-  const order = await Order.insertMany(orderData);
+  // const order = await Order.insertMany(orderData);
+
+  for (let i = 0; i < orderData.length; i++) {
+    const { _id, user_email, date, shipTo, paymentMethod, amount } = await Order.create(orderData[i]);
+    const user = await User.findOneAndUpdate(
+      { email: user_email },
+      {
+        $addToSet: {
+          orders: _id,
+        },
+      }
+    );
+  }
 
   console.log("Orders seeded!");
 

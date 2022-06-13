@@ -20,12 +20,11 @@ const typeDefs = gql`
 
   type Order {
     _id: ID!
-    name: String!
+    user_email: String!
     date: String
     shipTo: String
     PaymentMethod: String
     amount: Float
-    user_email: String
   }
 
   type Auth {

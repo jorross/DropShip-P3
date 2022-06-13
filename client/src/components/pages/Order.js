@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
-import { CREATE_ORDER } from "../../utils/mutations";
+import { ADD_ORDER, CREATE_ORDER } from "../../utils/mutations";
 import { QUERY_ORDERS } from "../../utils/queries";
 
 import * as React from "react";
@@ -22,7 +22,7 @@ const Order = () => {
 
   const orders = data?.orders || [];
 
-  //const [createOrder, { error }] = useMutation(CREATE_ORDER);
+  const [addOrder, { error }] = useMutation(ADD_ORDER);
 
   return (
     <React.Fragment>

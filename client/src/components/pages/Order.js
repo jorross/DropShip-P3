@@ -1,7 +1,7 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
 import { ADD_ORDER, CREATE_ORDER } from "../../utils/mutations";
-import { QUERY_ORDERS } from "../../utils/queries";
+import { QUERY_USER_ORDERS } from "../../utils/queries";
 
 import * as React from "react";
 import Link2 from "@mui/material/Link";
@@ -14,12 +14,15 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 const Order = () => {
-  // let { id } = useParams();
-  const { loading, data } = useQuery(QUERY_ORDERS);
+  const userInfo = localStorage.getItem("userInfo");
+
+  const { loading, data } = useQuery(QUERY_USER_ORDERS, {
+    variables: { user_email: userInfo[1] },
+  });
   // const { loading, data } = useQuery(QUERY_PRODUCTS, {
   //   variables: { _id: id },
   // });
-
+  console.log(data);
   const orders = data?.orders || [];
 
   const [addOrder, { error }] = useMutation(ADD_ORDER);
@@ -40,8 +43,8 @@ const Order = () => {
           </TableHead>
           <TableBody>
             {orders.map((order) => (
-              <TableRow key={order.id}>
-                <TableCell>{order.id}</TableCell>
+              <TableRow key={order._id}>
+                <TableCell>{order._id}</TableCell>
                 <TableCell>{order.date}</TableCell>
                 <TableCell>{order.name}</TableCell>
                 <TableCell>{order.shipTo}</TableCell>

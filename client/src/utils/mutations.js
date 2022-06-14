@@ -1,14 +1,14 @@
 import { gql } from "@apollo/client";
 
-export const CREATE_ORDER = gql`
-  mutation createOrder($product_id: String!, $user_id: String!) {
-    createOrder(product_id: $product_id, user_id: $user_id) {
-      _id
-      product_id
-      user_id
-    }
-  }
-`;
+// export const CREATE_ORDER = gql`
+//   mutation createOrder($product_id: String!, $user_id: String!) {
+//     createOrder(product_id: $product_id, user_id: $user_id) {
+//       _id
+//       product_id
+//       user_id
+//     }
+//   }
+// `;
 
 export const CREATE_PRODUCT = gql`
   mutation createProduct($name: String!, $stock: Int, $price: Int) {
@@ -48,15 +48,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_ORDER = gql`
-  mutation addOrder($name: String!, $user_email: String!) {
-    addOrder(name: $name, user_email: $user_email) {
+  mutation addOrder($user_email: String!, $date: String, $shipTo: String, $paymentMethod: String, $amount: String) {
+    addOrder(user_email: $user_email, date: $date, shipTo: $shipTo, paymentMethod: $paymentMethod, amount: $amount) {
       _id
-      name
+      user_email
       date
       shipTo
-      PaymentMethod
+      paymentMethod
       amount
-      user_email
     }
   }
 `;

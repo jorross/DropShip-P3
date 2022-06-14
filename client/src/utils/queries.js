@@ -43,7 +43,20 @@ export const QUERY_ORDERS = gql`
   query Orders {
     orders {
       _id
-      name
+      user_email
+      date
+      shipTo
+      PaymentMethod
+      amount
+    }
+  }
+`;
+
+export const QUERY_USER_ORDERS = gql`
+  query Order($user_email: String!) {
+    order(user_email: $user_email) {
+      _id
+      user_email
       date
       shipTo
       PaymentMethod

@@ -13,7 +13,7 @@ const orderSchema = new Schema({
   shipTo: {
     type: String,
   },
-  PaymentMethod: {
+  paymentMethod: {
     type: String,
   },
   amount: {

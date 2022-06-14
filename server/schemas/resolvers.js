@@ -16,6 +16,9 @@ const resolvers = {
     orders: async () => {
       return Order.find({});
     },
+    order: async (parent, { email }) => {
+      return Order.find({ email });
+    },
   },
   Mutation: {
     createOrder: async (parent, args, context) => {

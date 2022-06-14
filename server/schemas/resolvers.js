@@ -21,7 +21,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    createOrder: async (parent, args, context) => {
+    addOrder: async (parent, args, context) => {
       const newOrder = await Order.create(args);
 
       await User.findOneAndUpdate({ email: newOrder.user_email }, { $addToSet: { orders: newOrder._id } });

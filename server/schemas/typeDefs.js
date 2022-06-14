@@ -45,7 +45,7 @@ const typeDefs = gql`
     createOrder(product_id: ID!, user_id: ID!): Order
     addUser(firstname: String!, lastname: String!, email: String!, password: String!, admin: Boolean!): Auth
     login(email: String!, password: String!): Auth
-    addOrder(_id: ID!, name: String!, user_email: String): Order
+    addOrder(user_email: String!, date: String, shipTo: String, PaymentMethod: String, amount: Float): Order
   }
 `;
 

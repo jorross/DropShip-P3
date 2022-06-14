@@ -59,8 +59,8 @@ function App() {
                 element={<Login />} 
                 /> */}
               <Route path="/user/:id" element={<User />} />
-              <Route path="/order" element={<Order />} />
-              <Route path="/product" element={<Product />} />
+              <Route path="/orders" element={<Order />} />
+              <Route path="/products" element={<Product />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />

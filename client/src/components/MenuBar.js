@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,13 +14,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-// TODO: write logic so settings shows "sign up/sign in" 
-// or "profile, account, logout" depending on status
+import { AccountCircleIcon, LocalFireDepartmentIcon } from '@mui/icons-material/AccountCircle';
+
+import Auth from '../utils/auth';
 
 // update page names
-const pages = ['Products', 'Orders', 'Users'];
+const pages = ['Products', 'Orders'];
 // update user settings
-const settings = ['Profile', 'Account', 'Logout'];
+const settings = Auth.loggedIn() ? (['Account', 'Logout']) : (['Login', 'Signup']) ;
 
 const MenuBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -121,6 +124,8 @@ const MenuBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                component={ Link }
+                to={`/${page.toLowerCase()}`}
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -133,7 +138,7 @@ const MenuBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar component={AccountCircleIcon}/>
               </IconButton>
             </Tooltip>
             <Menu
@@ -153,7 +158,11 @@ const MenuBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem 
+                  component={ Link }
+                  to={`/${setting.toLowerCase()}`}
+                  key={setting} 
+                  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

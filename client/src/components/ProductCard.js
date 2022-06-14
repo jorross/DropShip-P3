@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,12 +8,9 @@ import Typography from '@mui/material/Typography';
 
 export default function ProductCard({product}) {
   console.log('product', product);
-  console.log('prod-image', product.image);
-  // const [imgPath, setImgPath] = useState('');
-  // setImgPath(product.image);
+
   const imgPath = product.image;
-  // const prodImage = require(prodPath).default;
-  // console.log(prodPath);
+
   return (
     <Card sx={{ minWidth: 375, boxShadow: 7 }}>
       <CardMedia

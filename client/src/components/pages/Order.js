@@ -22,8 +22,8 @@ const Order = () => {
   // const { loading, data } = useQuery(QUERY_PRODUCTS, {
   //   variables: { _id: id },
   // });
-  console.log(data);
-  const orders = data?.orders || [];
+
+  const orders = data?.order || [];
 
   const [addOrder, { error }] = useMutation(ADD_ORDER);
 
@@ -35,7 +35,7 @@ const Order = () => {
             <TableRow>
               <TableCell>Order ID</TableCell>
               <TableCell>Date</TableCell>
-              <TableCell>Name</TableCell>
+              <TableCell>Email</TableCell>
               <TableCell>Ship To</TableCell>
               <TableCell>Payment Method</TableCell>
               <TableCell align="right">Sale Amount</TableCell>
@@ -45,8 +45,8 @@ const Order = () => {
             {orders.map((order) => (
               <TableRow key={order._id}>
                 <TableCell>{order._id}</TableCell>
-                <TableCell>{order.date}</TableCell>
-                <TableCell>{order.name}</TableCell>
+                <TableCell>{order.user_email}</TableCell>
+                <TableCell>{order.user_email}</TableCell>
                 <TableCell>{order.shipTo}</TableCell>
                 <TableCell>{order.paymentMethod}</TableCell>
                 <TableCell align="right">{`$${order.amount}`}</TableCell>

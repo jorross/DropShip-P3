@@ -14,14 +14,18 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { AccountCircleIcon, LocalFireDepartmentIcon } from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import Auth from '../utils/auth';
 
-// update page names
+const logout = (event) => {
+  event.preventDefault();
+  Auth.logout();
+};
+
 const pages = ['Products', 'Orders'];
-// update user settings
-const settings = Auth.loggedIn() ? (['Account', 'Logout']) : (['Login', 'Signup']) ;
+
+const settings = Auth.loggedIn() ? (['Account', 'Checkout', 'Logout']) : (['Login', 'Signup']) ;
 
 const MenuBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

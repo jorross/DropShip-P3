@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import { CssBaseline } from "@mui/material";
+import { Checkbox, CssBaseline } from "@mui/material";
 
 import Home from "./components/pages/Home";
 import Header from "./components/Header";
@@ -13,6 +13,7 @@ import Product from "./components/pages/Product.js";
 import NotFound from "./components/pages/NotFound";
 import Login from "./components/pages/SignIn";
 import Signup from "./components/pages/SignUp";
+import Checkout from "./components/pages/Checkout";
 
 // const client = new ApolloClient({
 //   uri: '/graphql',
@@ -53,17 +54,13 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
-              {/* <Route 
-
-                path="/login" 
-                element={<Login />} 
-                /> */}
               <Route path="/user/:id" element={<User />} />
               <Route path="/orders" element={<Order />} />
               <Route path="/products" element={<Product />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </CssBaseline>
         </React.Fragment>

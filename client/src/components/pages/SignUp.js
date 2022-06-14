@@ -25,7 +25,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {"Copyright © "}
       <Link2 color="inherit" href="https://mui.com/">
-        Your Website
+        DRIPSHIP
       </Link2>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -145,7 +145,7 @@ const Signup = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link2 href="#" variant="body2">
+                <Link2 href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link2>
               </Grid>

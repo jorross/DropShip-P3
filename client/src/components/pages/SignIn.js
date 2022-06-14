@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -37,12 +37,16 @@ function Copyright(props) {
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
+  // const [loginState, setLoginState] = useState({ id: "", email: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
+  let email = "";
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-
+    // if (name == "email") {
+    //   email = value;
+    // }
     setFormState({
       ...formState,
       [name]: value,
@@ -52,15 +56,21 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
+      console.log(data.login.user);
+
+      const { _id, firstname, lastname } = data.login.user;
+      const userName = firstname + " " + lastname;
+
+      console.log("User info: " + _id + " " + userName);
+
+      localStorage.setItem("userInfo", [_id, formState.email, userName]);
 
       Auth.login(data.login.token);
     } catch (e) {
-      console.log("HERE!");
       console.error(e);
     }
 
@@ -72,16 +82,6 @@ const Login = (props) => {
   };
 
   const theme = createTheme();
-
-  // export default function SignIn() {
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     const data = new FormData(event.currentTarget);
-  //     console.log({
-  //       email: data.get("email"),
-  //       password: data.get("password"),
-  //     });
-  //   };
 
   return (
     <ThemeProvider theme={theme}>
@@ -147,4 +147,5 @@ const Login = (props) => {
     </ThemeProvider>
   );
 };
+
 export default Login;

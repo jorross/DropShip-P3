@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
@@ -46,6 +46,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const userInfo = localStorage.getItem("userInfo");
+
   return (
     <ApolloProvider client={client}>
       <Router>

@@ -53,8 +53,8 @@ export const QUERY_ORDERS = gql`
 `;
 
 export const QUERY_USER_ORDERS = gql`
-  query Order($user_email: String!) {
-    order(user_email: $user_email) {
+  query Order($email: String!) {
+    order(email: $email) {
       _id
       user_email
       date

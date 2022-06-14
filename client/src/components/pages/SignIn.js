@@ -67,7 +67,9 @@ const Login = (props) => {
 
       console.log("User info: " + _id + " " + userName);
 
-      localStorage.setItem("userInfo", [_id, formState.email, userName]);
+      localStorage.setItem("userID", _id);
+      localStorage.setItem("userEmail", formState.email);
+      localStorage.setItem("userID", userName);
 
       Auth.login(data.login.token);
     } catch (e) {

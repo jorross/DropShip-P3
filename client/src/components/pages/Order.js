@@ -14,16 +14,24 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 const Order = () => {
-  const userInfo = localStorage.getItem("userInfo");
+  let userID = localStorage.getItem("userID");
+
+  let userEmail = localStorage.getItem("userEmail");
+
+  console.log(userEmail);
 
   const { loading, data } = useQuery(QUERY_USER_ORDERS, {
-    variables: { user_email: userInfo[1] },
+    variables: { email: userEmail },
   });
   // const { loading, data } = useQuery(QUERY_PRODUCTS, {
   //   variables: { _id: id },
   // });
 
+  console.log(data);
+
   const orders = data?.order || [];
+
+  console.log(orders);
 
   const [addOrder, { error }] = useMutation(ADD_ORDER);
 
@@ -45,7 +53,7 @@ const Order = () => {
             {orders.map((order) => (
               <TableRow key={order._id}>
                 <TableCell>{order._id}</TableCell>
-                <TableCell>{order.user_email}</TableCell>
+                <TableCell>{order.date}</TableCell>
                 <TableCell>{order.user_email}</TableCell>
                 <TableCell>{order.shipTo}</TableCell>
                 <TableCell>{order.paymentMethod}</TableCell>

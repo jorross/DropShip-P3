@@ -38,7 +38,7 @@ const typeDefs = gql`
     user(email: String!): User
     products: [Product]
     orders: [Order]
-    order(user_email: String!): [Order]
+    order(email: String!): [Order]
   }
 
   type Mutation {

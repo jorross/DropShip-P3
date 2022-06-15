@@ -25,8 +25,6 @@ const logout = (event) => {
 
 const pages = ['Products', 'Orders'];
 
-const settings = Auth.loggedIn() ? (['Account', 'Checkout', 'Logout']) : (['Login', 'Signup']) ;
-
 const MenuBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -136,6 +134,7 @@ const MenuBar = () => {
               >
                 {page}
               </Button>
+
             ))}
           </Box>
 
@@ -161,15 +160,16 @@ const MenuBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem 
-                  component={ Link }
-                  to={`/${setting.toLowerCase()}`}
-                  key={setting} 
-                  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+            {Auth.loggedIn() ? (
+          <>
+          <MenuItem onClick={logout}>Logout</MenuItem>
+          </>
+         ) : (
+          <>
+          <MenuItem component={ Link } onClick={handleCloseUserMenu} to='/login'>Login</MenuItem>
+          <MenuItem component={ Link } onClick={handleCloseUserMenu} to='/signup'>Sign Up</MenuItem>
+          </>
+          )}
             </Menu>
           </Box>
         </Toolbar>

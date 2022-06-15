@@ -39,6 +39,18 @@ export const QUERY_PRODUCTS = gql`
   }
 `;
 
+export const QUERY_PRODUCT = gql`
+  query Product($name: String!) {
+    product(name: $name) {
+      _id
+      name
+      stock
+      price
+      image
+    }
+  }
+`;
+
 export const QUERY_ORDERS = gql`
   query Orders {
     orders {

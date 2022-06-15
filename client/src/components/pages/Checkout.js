@@ -17,6 +17,8 @@ import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 
 import { useQuery, useMutation } from "@apollo/client";
+import { useParams } from "react-router-dom";
+import { ADD_ORDER } from "../../utils/mutations";
 import { QUERY_PRODUCT } from "../../utils/queries";
 
 function Copyright() {
@@ -54,15 +56,30 @@ export default function Checkout() {
 
   const productName = localStorage.getItem("productName");
 
+  const userEmail = localStorage.getItem("userEmail");
+  const shippingAddress = localStorage.getItem("shippingAddress");
+
   const { loading, data } = useQuery(QUERY_PRODUCT, {
     variables: { name: productName },
   });
 
   const product = data?.product || [];
 
-  console.log(product);
+  const [addOrder, { error }] = useMutation(ADD_ORDER, {
+    variables: {
+      user_email: userEmail,
+      date: "" + Date.now(),
+      shipTo: shippingAddress,
+      paymentMethod: "Visa",
+      amount: product.price,
+    },
+  });
 
   const handleNext = () => {
+    // localStorage.setItem("shippingInfo", AddressForm.address);
+    if (activeStep === steps.length - 1) {
+      addOrder();
+    }
     setActiveStep(activeStep + 1);
   };
 

@@ -13,6 +13,9 @@ const resolvers = {
     products: async () => {
       return Product.find({});
     },
+    product: async (parent, { name }) => {
+      return Product.findOne({ name });
+    },
     orders: async () => {
       return Order.find({});
     },

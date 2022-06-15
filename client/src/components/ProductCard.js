@@ -29,7 +29,6 @@ export default function ProductCard({product}) {
       </CardContent>
       <CardActions style={{ justifyContent: 'center' }}>
         <Button size="small">Buy Now</Button>
-        <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
   );

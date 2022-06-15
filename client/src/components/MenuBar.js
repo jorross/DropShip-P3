@@ -25,7 +25,7 @@ const logout = (event) => {
 
 const pages = ['Products', 'Orders'];
 
-const settings = Auth.loggedIn() ? (['Account', 'Checkout', 'Logout']) : (['Login', 'Signup']) ;
+const settings = Auth.loggedIn() ? (['Logout']) : (['Login', 'Signup']) ;
 
 const MenuBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -136,6 +136,7 @@ const MenuBar = () => {
               >
                 {page}
               </Button>
+
             ))}
           </Box>
 

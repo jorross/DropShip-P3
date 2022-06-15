@@ -48,13 +48,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_ORDER = gql`
-  mutation addOrder($user_email: String!, $date: String, $shipTo: String, $paymentMethod: String, $amount: String) {
-    addOrder(user_email: $user_email, date: $date, shipTo: $shipTo, paymentMethod: $paymentMethod, amount: $amount) {
+  mutation addOrder($user_email: String!, $date: String, $shipTo: String, $paymentMethod: String, $amount: Float) {
+    addOrder(user_email: $user_email, date: $date, shipTo: $shipTo, PaymentMethod: $paymentMethod, amount: $amount) {
       _id
       user_email
       date
       shipTo
-      paymentMethod
+      PaymentMethod
       amount
     }
   }
